@@ -17,8 +17,5 @@ app.factory('UsersService', function($http, $cookies) {
         return response.data;
       });
     },
-    currentUser: function () {
-      return $cookies.get('session_id');
-    }
   }
 })

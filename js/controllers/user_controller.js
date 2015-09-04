@@ -1,4 +1,4 @@
-app.controller('UserController', function ($scope, UsersService, $location, $cookies) {
+app.controller('UserController', function ($scope, UsersService, $location, $cookies, SessionService) {
   $scope.errors = false;
 
   $scope.signup = function() {
@@ -8,8 +8,8 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
         $scope.newUser = {};
         $location.path('/signup');
       } else {
+        SessionService.currentUser = response.id;
         $cookies.put('session_id', response.id);
-        $scope.loggedInUser = UsersService.currentUser();
         $location.path('/users/' + response.id);
       }
     });
@@ -18,7 +18,7 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
   $scope.logout = function () {
     $scope.errors = "You have been logged out";
     $cookies.remove('session_id');
-    $scope.loggedInUser = null;
+    SessionService.currentUser = null;
     $location.path("/");
   }
 
@@ -29,8 +29,8 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
         $scope.errors = response.error;
       } else {
         $cookies.put('session_id', response.id);
+        SessionService.currentUser = response.id;
         $scope.user = {};
-        $scope.loggedInUser = $cookies.get('session_id');
         $location.path('/users/' + response.id);
       }
     });
