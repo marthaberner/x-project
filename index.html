@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/style.css" media="screen" title="no title" charset="utf-8">
-    <base href='/' />
+    <base href="/"></base>
   </head>
   <body>
     <nav class="navbar navbar-default" ng-controller="UserController">
@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><i class="fa fa-users"></i> person | project</a>
+          <a class="navbar-brand" href="/#/"><i class="fa fa-users"></i> person | project</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,18 +37,18 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li class="errors" ng-show="errors"><a href="#"> {{ errors }}</a></li>
-            <li ng-hide="loggedInUser"><a href="/signup"><i class="fa fa-user"></i> Signup</a></li>
+            <li ng-hide="loggedInUser"><a href="#/signup"><i class="fa fa-user"></i> Signup</a></li>
             <li ng-hide="!loggedInUser" ng-click="logout()"><a href="#"><i class="fa fa-user"></i> Log Out</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container">
-      <div ng-view></div>
+      <div ui-view></div>
     </div>
-    
+
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <script type="text/javascript" src="/js/controllers/application_controller.js"></script>
