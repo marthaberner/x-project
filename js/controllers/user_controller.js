@@ -8,8 +8,7 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
         $scope.newUser = {};
         $location.path('/signup');
       } else {
-        SessionService.currentUser = response.id;
-        $cookies.put('session_id', response.id);
+        SessionService.set(response.id);
         $location.path('/users/' + response.id);
       }
     });
@@ -28,8 +27,7 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
         $scope.user.password = "";
         $scope.errors = response.error;
       } else {
-        $cookies.put('session_id', response.id);
-        SessionService.currentUser = response.id;
+        SessionService.set(response.id);
         $scope.user = {};
         $location.path('/users/' + response.id);
       }
