@@ -1,5 +1,4 @@
 app.controller('UserController', function ($scope, UsersService, $location, $cookies) {
-
   $scope.errors = false;
 
   $scope.signup = function() {
@@ -10,7 +9,7 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
         $location.path('/signup');
       } else {
         $cookies.put('session_id', response.id);
-        $scope.loggedInUser = $cookies.get('session_id');
+        $scope.loggedInUser = UsersService.currentUser();
         $location.path('/users/' + response.id);
       }
     });
