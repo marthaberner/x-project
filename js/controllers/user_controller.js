@@ -1,5 +1,4 @@
 app.controller('UserController', function ($scope, UsersService, $location, $cookies, SessionService) {
-  $scope.errors = false;
 
   $scope.signup = function() {
     UsersService.create($scope.newUser).then(function(response) {
@@ -15,7 +14,6 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
   }
 
   $scope.logout = function () {
-    $scope.errors = "You have been logged out";
     $cookies.remove('session_id');
     SessionService.currentUser = null;
     $location.path("/");
@@ -29,8 +27,24 @@ app.controller('UserController', function ($scope, UsersService, $location, $coo
       } else {
         SessionService.set(response.id);
         $scope.user = {};
-        $location.path('/users/' + response.id);
+        if(response.admin){
+          $location.path('/admin/dashboard/' + response.id);
+        } else {
+          $location.path('/users/' + response.id);
+        }
       }
     });
+  }
+
+  $scope.newAdmin = function () {
+    UsersService.createAdmin($scope.admin).then(function (response) {
+      if(response.error){
+        $scope.admin = {};
+        $scope.errors = response.error;
+      } else {
+        $scope.admin = {};
+        $location.path('/')
+      }
+    })
   }
 })

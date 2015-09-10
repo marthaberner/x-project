@@ -7,10 +7,6 @@ body {
   color: white;
 }
 
-.errors li {
-  color: white;
-}
-
 .users {
   opacity: 0;
 }

@@ -22,4 +22,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/user.html',
       controller: 'UserController'
     })
+    .state('admin/new', {
+      url: '/admin/new',
+      templateUrl: '/partials/admin/new.html',
+      controller: 'UsersController'
+    })
+    .state('admin/dashboard/:id', {
+      url: '/admin/dashboard/:id',
+      templateUrl: '/partials/admin/dashboard.html',
+      controller: 'AdminController'
+    })
+
 })
