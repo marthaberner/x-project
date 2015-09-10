@@ -32,5 +32,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/admin/dashboard.html',
       controller: 'AdminController'
     })
+    .state('users/terms', {
+      url: '/terms',
+      templateUrl: '/partials/terms.html',
+      controller: 'UsersController'
+    })
 
 })
