@@ -15,12 +15,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('signup', {
       url: '/signup',
       templateUrl: '/partials/signup.html',
-      controller: 'UserController'
+      controller: 'UsersController'
     })
     .state('users/:id', {
       url: '/users/:id',
       templateUrl: '/partials/user.html',
-      controller: 'UserController'
+      controller: 'UsersController'
     })
     .state('admin/new', {
       url: '/admin/new',
@@ -37,5 +37,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/terms.html',
       controller: 'UsersController'
     })
-
+    .state('users/:id/show', {
+      url: '/users/:id/show',
+      templateUrl: '/partials/show.html',
+      controller: 'UsersController'
+    })
 })
