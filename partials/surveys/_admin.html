@@ -1,0 +1,15 @@
+<div class="jumbotron surveys">
+  <h3 class='form-title'>Listing All Surveys
+    <button class="btn btn-default pull-right" type="button">New Survey</button></h3>
+    <div class="list-group" ng-repeat='survey in surveys'>
+      <div class="list-group-item survey-info">
+        <h4><a ui-sref='admin.survey({survey_id: survey.id })'>{{ survey.title }}</a></h4>
+        <p>
+          {{ survey.description}}
+        </p>
+        <p>
+          Estimated time to complete: {{ survey.estimated_time_to_complete}} minutes
+        </p>
+      </div>
+    </div>
+</div>

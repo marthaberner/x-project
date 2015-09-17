@@ -2,8 +2,26 @@ body {
   background-image: url('/images/background.jpeg');
 }
 
+li {
+  list-style-type: none;
+}
+
+li a:hover {
+  color: #223333;
+  text-decoration: none;
+}
+
 h3 {
+  color: #337ab7;
   margin-bottom: 20px;
+}
+
+.survey-info.list-group-item p {
+  font-size: 16px;
+}
+
+.form-title {
+  color: #223333;
 }
 
 .navbar-collapse {
@@ -48,7 +66,7 @@ h3 {
   background-color: lightgray;
 }
 
-.admin.jumbotron {
+.user.jumbotron {
   background-color: white;
   opacity: 1;
 }

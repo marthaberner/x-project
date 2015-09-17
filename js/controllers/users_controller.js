@@ -1,5 +1,5 @@
 app.controller('UsersController', function ($scope, UsersService, $location, $cookies, SessionService, $stateParams) {
-  
+
   $scope.loggedInUser = SessionService;
   UsersService.all().then(function (users) {
     $scope.users = users;
@@ -14,7 +14,7 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
         $location.path('/signup');
       } else {
         SessionService.set(response.id);
-        $location.path('/users/' + response.id);
+        $location.path('/users/' + response.id + '/surveys');
       }
     });
   }
@@ -35,9 +35,9 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
         $scope.session = {};
         if(response.admin){
           SessionService.admin = true;
-          $location.path('/admin/dashboard/' + response.id + '/surveys');
+          $location.path('/admin/' + response.id + '/dashboard/surveys');
         } else {
-          $location.path('/users/' + response.id);
+          $location.path('/users/' + response.id + '/surveys');
         }
       }
     });
@@ -58,14 +58,14 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
   $scope.show = function(user) {
     var admin_id = $stateParams.id;
     UsersService.find(user).then(function(response) {
-      $location.path('admin/dashboard/' + admin_id + '/users/' + response.data.id)
+      $location.path('admin/' + admin_id + '/dashboard/users/' + response.data.id)
     })
   },
 
   $scope.delete = function (user) {
     var admin_id = $stateParams.id
-    var success_url = 'admin/dashboard/' + admin_id +'/users'
-    var fail_url = 'admin/dashboard/' + admin_id + '/users/' + $stateParams.user_id
+    var success_url = 'admin/' + admin_id + '/dashboard/users'
+    var fail_url = 'admin/' + admin_id + '/dashboard/users/' + $stateParams.user_id
     UsersService.destroy(user).then(function (response) {
       return response ? $location.path(success_url) : $location.path(fail_url)
     })
