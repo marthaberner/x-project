@@ -1,7 +1,9 @@
-
-<div>
-  <a href="#" class="list-group-item active">Users</a>
+<div class="jumbotron users">
+  <div>
+    <h3>Listing All Users</h3>
+    <div class="list-group" ng-repeat="user in users">
+      <a ui-sref="admin.user({user_id: user.id})" ng-click="show(user)" class="list-group-item">{{ user.username }}</a>
   </div>
-  <div class="list-group" ng-repeat="user in users">
-    <a ui-sref="admin.user({user_id: user.id})" ng-click="show(user)" class="list-group-item">{{ user.username }}</a>
+</div>
+
 </div>

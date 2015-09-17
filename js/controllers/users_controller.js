@@ -1,5 +1,5 @@
 app.controller('UsersController', function ($scope, UsersService, $location, $cookies, SessionService, $stateParams) {
-
+  
   $scope.loggedInUser = SessionService;
   UsersService.all().then(function (users) {
     $scope.users = users;
@@ -35,7 +35,7 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
         $scope.session = {};
         if(response.admin){
           SessionService.admin = true;
-          $location.path('/admin/dashboard/' + response.id);
+          $location.path('/admin/dashboard/' + response.id + '/surveys');
         } else {
           $location.path('/users/' + response.id);
         }

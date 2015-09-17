@@ -2,6 +2,14 @@ body {
   background-image: url('/images/background.jpeg');
 }
 
+h3 {
+  margin-bottom: 20px;
+}
+
+.navbar-collapse {
+  padding-left: 0px;
+}
+
 .errors {
   margin-bottom: 5px;
   display: inline-block;
@@ -23,14 +31,6 @@ body {
   opacity: 0;
 }
 
-
-.admin.jumbotron {
-  padding-left: 30px;
-  padding-right: 30px;
-  margin: 0px;
-  opacity: 1;
-}
-
 .jumbotron {
   opacity: .85;
   margin-top: 60px;
@@ -39,6 +39,18 @@ body {
 
 .jumbotron h1 {
   color: #337ab7;
+}
+.surveys.jumbotron, .users.jumbotron, .show-user.jumbotron  {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 0px;
+  padding-top: 15px;
+  background-color: lightgray;
+}
+
+.admin.jumbotron {
+  background-color: white;
+  opacity: 1;
 }
 
 
