@@ -7,11 +7,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: '/partials/welcome/home.html'
     })
-    .state('users', {
-      url: '/users',
-      templateUrl: '/partials/users/index.html',
-      controller: 'UsersController'
-    })
     .state('signup', {
       url: '/signup',
       templateUrl: '/partials/registrations/new.html',
@@ -27,19 +22,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/admin/new.html',
       controller: 'UsersController'
     })
-    .state('admin/dashboard/:id', {
+    .state('admin', {
       url: '/admin/dashboard/:id',
       templateUrl: '/partials/admin/dashboard.html',
       controller: 'AdminController'
     })
+    .state('admin.users', {
+      url: '/users',
+      templateUrl: '/partials/users/index.html',
+      controller: 'UsersController'
+    })
+    .state('admin.user', {
+      url: '/users/:user_id',
+      templateUrl: '/partials/admin/show_user.html',
+      controller: 'UsersController'
+    })
     .state('users/terms', {
       url: '/terms',
       templateUrl: '/partials/welcome/terms.html',
-      controller: 'UsersController'
-    })
-    .state('users/:id/show', {
-      url: '/users/:id/show',
-      templateUrl: '/partials/users/show.html',
       controller: 'UsersController'
     })
 })

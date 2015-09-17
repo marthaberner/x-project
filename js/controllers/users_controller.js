@@ -5,7 +5,7 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
     $scope.users = users;
   })
 
-  $scope.user = $stateParams.id
+  $scope.user = $stateParams.user_id
   $scope.signup = function() {
     UsersService.create($scope.newUser).then(function(response) {
       if (response.error) {
@@ -56,14 +56,18 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
   },
 
   $scope.show = function(user) {
+    var admin_id = $stateParams.id;
     UsersService.find(user).then(function(response) {
-      $location.path('/users/' + response.data.id)
+      $location.path('admin/dashboard/' + admin_id + '/users/' + response.data.id)
     })
   },
 
   $scope.delete = function (user) {
+    var admin_id = $stateParams.id
+    var success_url = 'admin/dashboard/' + admin_id +'/users'
+    var fail_url = 'admin/dashboard/' + admin_id + '/users/' + $stateParams.user_id
     UsersService.destroy(user).then(function (response) {
-      return response ? $location.path('/users') : $location.path('/users/' + user.id)
+      return response ? $location.path(success_url) : $location.path(fail_url)
     })
   }
 })
