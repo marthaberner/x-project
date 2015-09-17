@@ -5,21 +5,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('/', {
       url: '/',
-      templateUrl: '/partials/home.html'
+      templateUrl: '/partials/welcome/home.html'
     })
     .state('users', {
       url: '/users',
-      templateUrl: '/partials/users.html',
+      templateUrl: '/partials/users/index.html',
       controller: 'UsersController'
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: '/partials/signup.html',
+      templateUrl: '/partials/registrations/new.html',
       controller: 'UsersController'
     })
     .state('users/:id', {
       url: '/users/:id',
-      templateUrl: '/partials/user.html',
+      templateUrl: '/partials/users/show.html',
       controller: 'UsersController'
     })
     .state('admin/new', {
@@ -34,12 +34,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('users/terms', {
       url: '/terms',
-      templateUrl: '/partials/terms.html',
+      templateUrl: '/partials/welcome/terms.html',
       controller: 'UsersController'
     })
     .state('users/:id/show', {
       url: '/users/:id/show',
-      templateUrl: '/partials/show.html',
+      templateUrl: '/partials/users/show.html',
       controller: 'UsersController'
     })
 })

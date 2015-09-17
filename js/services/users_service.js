@@ -7,7 +7,7 @@ app.factory('UsersService', function($http, $cookies) {
       });
     },
     all: function () {
-      return $http.get('http://localhost:3000/api/users').then(function (response) {
+      return $http.get('https://person-project.herokuapp.com/api/users').then(function (response) {
        return response.data
       })
     },
@@ -22,13 +22,13 @@ app.factory('UsersService', function($http, $cookies) {
       });
     },
     find: function(user){
-      return $http.get('http://localhost:3000/api/users/' + user.id).then(function (response) {
+      return $http.get('https://person-project.herokuapp.com/api/users/' + user.id).then(function (response) {
         return response
       })
     },
 
     destroy: function (user) {
-      return $http.delete('http://localhost:3000/api/users/' + user).then(function (response) {
+      return $http.delete('https://person-project.herokuapp.com/api/users/' + user).then(function (response) {
         return response.status === 200 ? true : false;
       })
     }
