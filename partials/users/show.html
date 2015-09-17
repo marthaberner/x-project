@@ -3,5 +3,5 @@
   <p>
     Showing user {{ user }}
   </p>
-  <a  href ng-click="delete(user)">Delete</a>
+  <a ng-show='loggedInUser.admin' href ng-click="delete(user)">Delete</a>
 </div>

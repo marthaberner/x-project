@@ -1,6 +1,6 @@
 app.controller('UsersController', function ($scope, UsersService, $location, $cookies, SessionService, $stateParams) {
 
-  $scope.loggedInUser = $cookies.get('session_id');
+  $scope.loggedInUser = SessionService;
   UsersService.all().then(function (users) {
     $scope.users = users;
   })
@@ -26,14 +26,15 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
   }
 
   $scope.signin = function () {
-    UsersService.signin($scope.user).then(function (response) {
+    UsersService.signin($scope.session).then(function (response) {
       if(response.error){
-        $scope.user.password = "";
+        $scope.session.password = "";
         $scope.errors = response.error;
       } else {
         SessionService.set(response.id);
-        $scope.user = {};
+        $scope.session = {};
         if(response.admin){
+          SessionService.admin = true;
           $location.path('/admin/dashboard/' + response.id);
         } else {
           $location.path('/users/' + response.id);
