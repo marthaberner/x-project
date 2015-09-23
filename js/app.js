@@ -1,11 +1,12 @@
-var app = angular.module('person-project', ['ui.router', 'ngCookies']);
+var app = angular.module('person-project', ['ui.router', 'ngCookies', 'angularModalService']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
-    .state('/', {
+    .state('home', {
       url: '/',
-      templateUrl: '/partials/welcome/home.html'
+      templateUrl: '/partials/welcome/home.html',
+      controller: 'UsersController'
     })
     .state('signup', {
       url: '/signup',
@@ -31,11 +32,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/surveys/:survey_id',
       templateUrl: '/partials/surveys/_survey.html',
       controller: 'SurveyController'
-    })
-    .state('user.consent', {
-      url: '/consent',
-      templateUrl: '/partials/users/_consent.html',
-      controller: 'UsersController'
     })
     .state('admin', {
       url: '/admin/:id/dashboard',

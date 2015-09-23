@@ -6,3 +6,19 @@
   <p>VHS tattooed bitters slow-carb artisan. Odd Future whatever fashion axe Pitchfork. Fingerstache letterpress pug cliche, polaroid asymmetrical vinyl forage fashion axe pork belly sustainable post-ironic flexitarian narwhal. Whatever 90's farm-to-table hoodie. </p>
   <p>Vis in diam mucius, aliquid principes evertitur sed eu. Mea ut dicta ponderum mnesarchum, per ut sale partiendo. Ne eum prima nihil aliquip. Commodo virtute vel ex, ea tale legimus nam.
   Dicta senserit no eos. Te falli solet numquam vel, mel ad vidit facete. Ubique quodsi utamur ne has, per agam admodum complectitur ex, no sea harum omnium praesent. Eum id simul everti, dolorem efficiantur in vix. Sea ei mandamus postulant, ei vix erant placerat convenire.</p>
+  <hr>
+  <div class="jumbotron surveys" ng-controller='SurveysController'>
+    <h3 class='form-title'>Surveys</h3>
+    <div class="list-group" ng-repeat='survey in surveys'>
+      <div class="list-group-item survey-info">
+        <h4><a ng-click="showConsentModal(survey.id)" >{{ survey.title }}</a></h4>
+        <p>
+          {{ survey.description}}
+        </p>
+        <p>
+          Estimated time to complete: {{ survey.estimated_time_to_complete}} minutes
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

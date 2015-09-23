@@ -45,12 +45,7 @@ h3 {
   font-size: 16px;
 }
 
-.users {
-  opacity: 0;
-}
-
 .jumbotron {
-  opacity: .85;
   margin-top: 60px;
   background-color: #FFFFFF;
 }
