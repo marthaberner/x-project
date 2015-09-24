@@ -11,4 +11,8 @@ app.controller('SurveysController', function ($scope, SurveysService, ModalServi
       });
     });
   }
+
+  $scope.newSurvey = function () {
+    $location.path('admin/48/surveys/new');
+  }
 })

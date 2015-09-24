@@ -48,6 +48,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'partials/surveys/_admin.html',
       controller: 'SurveysController'
     })
+    .state('admin.new_survey', {
+      url: '/surveys/new',
+      templateUrl: '/partials/surveys/new',
+      controller: 'SurveyController'
+    })
     .state('admin.survey', {
       url: '/surveys/:survey_id',
       templateUrl: '/partials/surveys/_survey.html',
