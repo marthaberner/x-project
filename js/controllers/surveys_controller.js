@@ -1,5 +1,5 @@
-app.controller('SurveysController', function ($scope, SurveysService, ModalService, $location) {
-  $scope.surveys = SurveysService;
+app.controller('SurveysController', function ($scope, SamplesService, ModalService, $location) {
+  $scope.surveys = SamplesService;
 
   $scope.showConsentModal = function(survey_id) {
     ModalService.showModal({
