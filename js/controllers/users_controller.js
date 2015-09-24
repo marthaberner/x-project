@@ -35,7 +35,7 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
         $scope.session = {};
         if(response.admin){
           SessionService.admin = true;
-          $location.path('/admin/' + response.id + '/dashboard/surveys');
+          $location.path('/admin/' + response.id + '/surveys');
         } else {
           $location.path('/users/' + response.id + '/surveys');
         }
@@ -58,14 +58,14 @@ app.controller('UsersController', function ($scope, UsersService, $location, $co
   $scope.show = function(user) {
     var admin_id = $stateParams.id;
     UsersService.find(user).then(function(response) {
-      $location.path('admin/' + admin_id + '/dashboard/users/' + response.data.id)
+      $location.path('admin/' + admin_id + '/users/' + response.data.id)
     })
   },
 
   $scope.delete = function (user) {
     var admin_id = $stateParams.id
-    var success_url = 'admin/' + admin_id + '/dashboard/users'
-    var fail_url = 'admin/' + admin_id + '/dashboard/users/' + $stateParams.user_id
+    var success_url = 'admin/' + admin_id + '/users'
+    var fail_url = 'admin/' + admin_id + '/users/' + $stateParams.user_id
     UsersService.destroy(user).then(function (response) {
       return response ? $location.path(success_url) : $location.path(fail_url)
     })
