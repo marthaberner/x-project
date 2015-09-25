@@ -1,4 +1,4 @@
-var app = angular.module('person-project', ['ui.router', 'ngCookies', 'angularModalService']);
+var app = angular.module('person-project', ['ui.router', 'ngCookies', 'angularModalService', 'formly', 'formlyBootstrap']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
@@ -51,7 +51,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('admin.new_survey', {
       url: '/surveys/new',
       templateUrl: '/partials/surveys/new',
-      controller: 'SurveyController'
+      controller: 'SurveyController as vm'
     })
     .state('admin.survey', {
       url: '/surveys/:survey_id',
