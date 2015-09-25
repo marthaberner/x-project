@@ -1,4 +1,4 @@
-var app = angular.module('person-project', ['ui.router', 'ngCookies', 'angularModalService', 'formly', 'formlyBootstrap']);
+var app = angular.module('person-project', ['ui.router', 'ngCookies', 'angularModalService', 'formly', 'formlyBootstrap', 'angularUtils.directives.dirPagination']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');

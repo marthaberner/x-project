@@ -1,7 +1,7 @@
 <div class="jumbotron surveys">
   <h3 class='form-title'>Listing All Surveys
     <button class="btn btn-default pull-right" ng-click="newSurvey()" type="button">New Survey</button></h3>
-    <div class="list-group" ng-repeat='survey in surveys'>
+    <div class="list-group" dir-paginate="survey in surveys | itemsPerPage: 4">
       <div class="list-group-item survey-info">
         <h4><a ui-sref='admin.survey({survey_id: survey.id })'>{{ survey.title }}</a></h4>
         <p>
@@ -12,4 +12,5 @@
         </p>
       </div>
     </div>
+    <dir-pagination-controls></dir-pagination-controls>
 </div>
