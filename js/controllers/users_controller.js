@@ -1,5 +1,4 @@
 app.controller('UsersController', function ($scope, UsersService, $location, $cookies, SessionService, $stateParams) {
-
   $scope.loggedInUser = SessionService;
   UsersService.all().then(function (users) {
     $scope.users = users;

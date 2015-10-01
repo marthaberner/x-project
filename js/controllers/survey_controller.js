@@ -1,5 +1,10 @@
-app.controller('SurveyController', function ($scope, $stateParams) {
+app.controller('SurveyController', function ($scope, $stateParams, $location, SurveysService) {
   $scope.someSurvey = "Some Survey"
+
+  $scope.createSurvey = function () {
+    SurveysService.insert(vm.survey)
+    $location.path('admin/48/surveys')
+  }
 
   var vm = this;
   vm.survey = {};
@@ -29,9 +34,19 @@ app.controller('SurveyController', function ($scope, $stateParams) {
       key: 'version',
       type: 'input',
       templateOptions: {
-        type: 'text',
+        type: 'number',
         label: 'Version',
         placeholder: 'Survey Version',
+        required: true
+      }
+    },
+    {
+      key: 'estimated_time_to_complete',
+      type: 'input',
+      templateOptions: {
+        type: 'number',
+        label: 'Estimated Time to Complete',
+        placeholder: 'Estimated Time to Complete',
         required: true
       }
     },
@@ -54,28 +69,6 @@ app.controller('SurveyController', function ($scope, $stateParams) {
             "value":"retired"
           }
         ],
-        required: true
-      }
-    },
-    {
-      key: 'question',
-      type: 'select',
-      templateOptions: {
-        label: 'Type of question',
-        options: [
-          {
-          "name":"Radio Button",
-          "value":"radio"
-        },
-        {
-          "name":"Text Input",
-          "value":"text"
-        },
-        {
-          "name":"Text Area Input",
-          "value":"textArea"
-        }
-      ],
         required: true
       }
     }
