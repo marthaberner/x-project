@@ -2,7 +2,7 @@ app.controller('SurveyController', function ($scope, $stateParams, $location, Su
   $scope.someSurvey = "Some Survey"
 
   $scope.createSurvey = function () {
-    SurveysService.insert(vm.survey)
+    SurveysService.create(vm.survey)
     $location.path('admin/48/surveys')
   }
 
@@ -11,7 +11,7 @@ app.controller('SurveyController', function ($scope, $stateParams, $location, Su
 
   vm.surveyFields = [
     {
-      key: 'title',
+      key: 'name',
       type: 'input',
       templateOptions: {
         type: 'text',
