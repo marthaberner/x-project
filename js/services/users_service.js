@@ -12,7 +12,7 @@ app.factory('UsersService', function($http, $cookies) {
       })
     },
     signin: function (user) {
-      return $http.post('http://localhost:3000/api/v1/users', user ).then(function (response) {
+      return $http.post('http://localhost:3000/api/v1/users/signin', user ).then(function (response) {
         return response.data;
       });
     },
