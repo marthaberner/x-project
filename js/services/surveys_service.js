@@ -10,6 +10,12 @@ app.factory('SurveysService', function ($http) {
       return $http.post('http://localhost:3000/api/v1/surveys', survey).then(function (response) {
         return response.data;
       });
+    },
+
+    find: function (survey_id) {
+      return $http.get('http://localhost:3000/api/v1/surveys/' + survey_id).then(function (response) {
+        return response.data;
+      })
     }
   }
 })

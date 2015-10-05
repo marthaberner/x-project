@@ -1,5 +1,29 @@
-app.controller('SurveyController', function ($scope, $stateParams, $location, SurveysService) {
-  $scope.someSurvey = "Some Survey"
+app.controller('SurveyController', function ($scope, $stateParams, $location, ModalService, SurveysService) {
+  SurveysService.find($stateParams.survey_id).then(function (response) {
+    $scope.survey = response;
+  })
+
+  $scope.showConsentModal = function() {
+    ModalService.showModal({
+      templateUrl: "/partials/users/consent.html",
+      controller: "SurveyController"
+    }).then(function(modal) {
+      modal.element.modal();
+      modal.close.then(function(result) {
+      });
+    });
+  }
+
+  $scope.submitConsentForm = function () {
+    if($scope.consent){
+      $location.path('/users/95/surveys/:id')
+    }
+  }
+
+  $scope.dismissModal = function(result) {
+    close(result, 200);
+    $location.path('/')
+ };
 
   $scope.createSurvey = function () {
     SurveysService.create(vm.survey)
