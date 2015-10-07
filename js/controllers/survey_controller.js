@@ -1,4 +1,4 @@
-app.controller('SurveyController', function ($scope, $stateParams, $location, ModalService, SurveysService) {
+app.controller('SurveyController', function ($scope, $stateParams, $location, $state, ModalService, SurveysService) {
   SurveysService.find($stateParams.survey_id).then(function (response) {
     $scope.survey = response;
   })
@@ -26,8 +26,9 @@ app.controller('SurveyController', function ($scope, $stateParams, $location, Mo
  };
 
   $scope.createSurvey = function () {
-    SurveysService.create(vm.survey)
-    $location.path('admin/48/surveys')
+    SurveysService.create(vm.survey).then(function (response) {
+      $state.go('admin.survey', {survey_id: response.id});
+    })
   }
 
   var vm = this;

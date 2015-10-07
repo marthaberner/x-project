@@ -1,9 +1,9 @@
-app.controller('SurveysController', function ($scope, SamplesService, SurveysService, ModalService, $location) {
+app.controller('SurveysController', function ($scope, SamplesService, $state, SurveysService, ModalService, $location) {
   SurveysService.all().then(function (response) {
     $scope.surveys = response;
   })
 
   $scope.newSurvey = function () {
-    $location.path('admin/48/surveys/new');
+    $state.go('admin.new_survey');
   }
 })
