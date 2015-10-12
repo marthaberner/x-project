@@ -1,4 +1,5 @@
-app.controller('SurveyController', function ($scope, $stateParams, $location, $state, ModalService, SurveysService) {
+app.controller('SurveyController', function ($scope, $stateParams, $location, $state,
+  ModalService, SurveysService, SurveyItemsService) {
   SurveysService.find($stateParams.survey_id).then(function (response) {
     $scope.survey = response;
   })
