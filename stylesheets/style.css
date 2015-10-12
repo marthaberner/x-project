@@ -15,6 +15,22 @@ h3 {
   color: #337ab7;
   margin-bottom: 20px;
 }
+tr {
+  border: 1px solid lightgray;
+}
+th {
+  text-align: center;
+  border: 1px solid lightgray;
+  background-color: lightgray;
+}
+
+td {
+  border: 1px solid lightgray;
+}
+
+.table-radio {
+  text-align: center;
+}
 
 .survey-info.list-group-item p {
   font-size: 16px;

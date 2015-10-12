@@ -30,8 +30,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('user.survey', {
       url: '/surveys/:survey_id',
-      templateUrl: '/partials/surveys/_survey.html',
-      controller: 'SurveyController'
+      controller: 'SurveyController',
+      views: {
+        '' : {
+          templateUrl: '/partials/surveys/_survey.html',
+          controller: 'SurveyController'
+        },
+        'surveyItems@user.survey' : {
+          templateUrl: 'partials/survey_items/survey_item.html',
+          controller: 'SurveyItemController as vm'}
+      }
+    })
+    .state('user.results', {
+      url: '/results/:score',
+      templateUrl: 'partials/users/results.html',
+      controller: 'SurveyItemController',
     })
     .state('admin', {
       url: '/admin/:id',

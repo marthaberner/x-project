@@ -1,0 +1,32 @@
+<div class='table-responsive'>
+  <form ng-submit='submitSurvey()'>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th ng-repeat='option in surveyOptions'>{{option.text}}</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat='question in subQuestions'>
+            <td>
+              {{question.text}}
+            </td>
+            <td class='table-radio'>
+              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='1'>
+            </td>
+            <td class='table-radio'>
+              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='2'>
+            </td>
+            <td class='table-radio'>
+              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='3'>
+            </td>
+            <td class='table-radio'>
+              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='4'>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <input class='btn btn-primary pull-right' type='submit'></button>
+  </form>
+</div>

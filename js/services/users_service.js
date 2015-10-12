@@ -28,7 +28,7 @@ app.factory('UsersService', function($http, $cookies) {
     },
 
     destroy: function (user) {
-      return $http.delete('https://person-project.herokuapp.com/api/v1/users/' + user).then(function (response) {
+      return $http.delete('http://localhost:3000/api/v1/users/' + user).then(function (response) {
         return response.status === 200 ? true : false;
       })
     }
