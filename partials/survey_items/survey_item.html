@@ -12,17 +12,8 @@
             <td>
               {{question.text}}
             </td>
-            <td class='table-radio'>
-              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='1'>
-            </td>
-            <td class='table-radio'>
-              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='2'>
-            </td>
-            <td class='table-radio'>
-              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='3'>
-            </td>
-            <td class='table-radio'>
-              <input type='radio' ng-model='answers[$index]' ng-required='!answers[$index]' value='4'>
+            <td class='table-radio' ng-repeat='option in surveyOptions'>
+              <input type='radio' ng-model='answers[$parent.$index]' ng-required='!answers[$parent.$index]' value="{{$index+1}}">
             </td>
           </tr>
       </tbody>
