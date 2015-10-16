@@ -37,7 +37,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
           controller: 'SurveyController'
         },
         'surveyItems@user.survey' : {
-          templateUrl: 'partials/survey_items/survey_item.html',
+          templateUrl: 'partials/survey_items/show.html',
           controller: 'SurveyItemController as vm'}
       }
     })
