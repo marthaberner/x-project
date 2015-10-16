@@ -27,6 +27,16 @@ th {
 td {
   border: 1px solid lightgray;
 }
+.jumbotron p {
+  font-size: 16px;
+}
+.radio {
+  margin-left: 5%;
+}
+
+.radio p {
+  font-size: 5px;
+}
 
 .table-radio {
   text-align: center;
