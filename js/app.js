@@ -51,8 +51,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/admin/dashboard.html',
       controller: 'AdminController'
     })
-    .state('admin/new', {
-      url: '/admin/new',
+    .state('admin.new', {
+      url: '/new',
       templateUrl: '/partials/admin/new.html',
       controller: 'UsersController'
     })
