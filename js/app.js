@@ -5,8 +5,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/partials/welcome/home.html',
-      controller: 'UsersController'
+      controller: 'UsersController',
+      views: {
+        '' : {
+          templateUrl: '/partials/welcome/home.html',
+          controller: 'UsersController'
+        },
+        'surveys@home' : {
+          templateUrl: '/partials/surveys/index.html',
+          controller: 'SurveysController'
+        }
+      }
     })
     .state('signup', {
       url: '/signup',
@@ -25,7 +34,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('user.surveys', {
       url: '/surveys',
-      templateUrl: '/partials/surveys/_user.html',
+      templateUrl: '/partials/surveys/index.html',
       controller: 'SurveysController'
     })
     .state('user.survey', {
@@ -33,7 +42,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       controller: 'SurveyController',
       views: {
         '' : {
-          templateUrl: '/partials/surveys/_survey.html',
+          templateUrl: '/partials/surveys/show.html',
           controller: 'SurveyController'
         },
         'surveyItems@user.survey' : {
@@ -58,7 +67,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('admin.surveys', {
       url: '/surveys',
-      templateUrl: 'partials/surveys/_admin.html',
+      templateUrl: 'partials/surveys/index.html',
       controller: 'SurveysController'
     })
     .state('admin.new_survey', {

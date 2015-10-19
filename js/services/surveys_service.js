@@ -17,6 +17,9 @@ app.factory('SurveysService', function ($http) {
       return $http.get(url + '/surveys/' + survey_id).then(function (response) {
         return response.data;
       })
+    },
+    requestSurvey: function (survey) {
+      this.survey = survey;
     }
   }
 })
