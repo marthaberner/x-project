@@ -77,7 +77,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('admin.survey', {
       url: '/surveys/:survey_id',
-      templateUrl: '/partials/surveys/_survey.html',
+      templateUrl: '/partials/surveys/show.html',
       controller: 'SurveyController'
     })
     .state('admin.users', {

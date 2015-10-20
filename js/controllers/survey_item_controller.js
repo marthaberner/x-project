@@ -3,8 +3,15 @@ app.controller('SurveyItemController', function ($scope, $state, $location, Surv
   $scope.score = $stateParams.score;
   SurveyItemsService.find($stateParams.survey_id).then(function (response) {
     if(response.length > 1) {
-      $scope.surveyItems = response;
-      $scope.multiChoice = true;
+      response.forEach(function (item) {
+        if(item.item_type === 'multiple_choice' && item.layout === 'table'){
+          $scope.surveyOptions = item.options;
+          $scope.subQuestions = item.sub_questions;
+        } else {
+          $scope.surveyItems = response;
+          $scope.multiChoice = true;
+        }
+      })
     } else {
       $scope.surveyOptions = response[0].options;
       $scope.subQuestions = response[0].sub_questions;
