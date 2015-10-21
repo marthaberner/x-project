@@ -27,11 +27,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/users/dashboard.html',
       controller: 'UsersController'
     })
-    .state('user.demographics', {
-      url: '/demographics/new',
-      templateUrl: '/partials/demographics/new.html',
-      controller: 'UsersController'
-    })
     .state('user.surveys', {
       url: '/surveys',
       templateUrl: '/partials/surveys/index.html',
