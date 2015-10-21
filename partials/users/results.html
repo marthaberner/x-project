@@ -1,2 +1,36 @@
 <h3>Results</h3>
-Score: {{score}}
+<span ng-show='demographicsComplete'>
+  Score: {{score}}
+</span>
+<div ng-hide='demographicsComplete'>
+
+  <div class="list-group-item survey-info well">
+    <h3>{{survey.name}}</h3>
+    <p>
+      {{survey.description}}
+    </p>
+    <p>
+      Estimated time to complete: {{survey.estimated_time_to_complete}} minutes
+    </p>
+  </div>
+  <form ng-submit='submitSurvey()'>
+    <div class='well' ng-repeat='item in surveyItems'>
+      <span ng-if='item.item_type  === "multiple_choice"'>
+        <p>{{$index+1}}. {{item.title}}</p>
+        <p class='radio' ng-repeat='option in item.options'><small>
+          <input type='radio' ng-model='answers[$parent.$index]' value='{{$index+1}}' ng-required='!answers[$parent.$index]'> {{option.text}}
+          <span ng-if='option.additionalTextField'>
+            <input type="text" ng-model='other'>
+          </span>
+        </small></p>
+      </span>
+      <span ng-if='item.item_type === "text_input"'>
+        {{$index+1}}. {{item.title}}
+        <input type='input' ng-model='answers[$parent.$index]' value='{{$index+1}}' ng-required='!answers[$parent.$index]'>
+      </span>
+    </div>
+    <div>
+      <input class='btn btn-primary pull-right' type='submit'></input>
+    </div>
+  </form>
+</div>

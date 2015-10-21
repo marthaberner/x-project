@@ -48,7 +48,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('user.results', {
       url: '/results/:score',
       templateUrl: 'partials/users/results.html',
-      controller: 'SurveyItemController',
+      controller: 'ResultsController',
     })
     .state('admin', {
       url: '/admin/:id',
