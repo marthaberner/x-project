@@ -31,6 +31,11 @@ td {
 .table>thead>tr>th  {
   width: 100px;
 }
+
+.table>tbody>tr>td  {
+  text-align: center;
+  vertical-align:middle;
+}
 .jumbotron p {
   font-size: 16px;
 }
@@ -40,10 +45,6 @@ td {
 
 .radio p {
   font-size: 5px;
-}
-
-.table-radio {
-  text-align: center;
 }
 
 .survey-info.list-group-item p {
