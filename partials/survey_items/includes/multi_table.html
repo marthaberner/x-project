@@ -1,0 +1,18 @@
+<table class='table-responsive table table-striped'>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th ng-repeat='option in surveyOptions'>{{option.text}}</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat='question in subQuestions'>
+        <td>
+          {{question.text}}
+        </td>
+        <td ng-repeat='option in surveyOptions'>
+          <input type='radio' ng-model='answers[$parent.$index]' ng-required='!answers[$parent.$index]' value="{{$index+1}}">
+        </td>
+      </tr>
+  </tbody>
+</table>

@@ -2,50 +2,19 @@
   <form ng-submit='submitSurvey()'>
     <div class='well' ng-repeat='item in surveyItems'>
       <span ng-if="item.item_type === 'multiple_choice' && item.layout === 'multiple_choice'">
-        <p>{{$index+1}}. {{item.title}}</p>
-        <p class='radio' ng-repeat='option in item.options'><small>
-          <input type='radio' ng-model='answers[$parent.$index]' value='{{$index+1}}' ng-required='!answers[$parent.$index]'> {{option.text}}
-          <span ng-if='option.additionalTextField'>
-            <input type="text" ng-model='other'>
-          </span>
-        </small></p>
+        <div ng-include="'/partials/survey_items/includes/multi_multi.html'"></div>
       </span>
       <span ng-if="item.item_type === 'multiple_choice' && item.layout === 'free_form'">
-        <p>{{$index+1}}. {{item.title}}</p>
-        <p class='radio' ng-repeat='option in item.options'><small>
-          <input type='radio' ng-model='answers[$parent.$index]' value='{{$index+1}}' ng-required='!answers[$parent.$index]'> {{option.text}}
-          <span ng-if='option.additionalTextField'>
-            <input type="text" ng-model='other'>
-          </span>
-        </small></p>
+        <div ng-include="'/partials/survey_items/includes/multi_free_form.html'"></div>
       </span>
       <span ng-if="item.item_type === 'multiple_choice' && item.layout === 'table'">
-        <table class='table table-striped'>
-          <thead>
-            <tr>
-              <th>&nbsp;</th>
-              <th ng-repeat='option in surveyOptions'>{{option.text}}</th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr ng-repeat='question in subQuestions'>
-                <td>
-                  {{question.text}}
-                </td>
-                <td ng-repeat='option in surveyOptions'>
-                  <input type='radio' ng-model='answers[$parent.$index]' ng-required='!answers[$parent.$index]' value="{{$index+1}}">
-                </td>
-              </tr>
-          </tbody>
-        </table>
+        <div ng-include="'/partials/survey_items/includes/multi_table.html'"></div>
       </span>
       <span ng-if='item.item_type === "text_input"'>
-        {{$index+1}}. {{item.title}}
-        <input type='input' ng-model='answers[$parent.$index]' value='{{$index+1}}' ng-required='!answers[$parent.$index]'>
+        <div ng-include="'/partials/survey_items/includes/text_input.html'"></div>
       </span>
       <span ng-if='item.item_type === "numeric_input"'>
-        {{$index+1}}. {{item.title}}
-        <input type='number' ng-model='answers[$parent.$index]' value='' ng-required='!answers[$parent.$index]'>
+        <div ng-include="'/partials/survey_items/includes/numeric_input.html'"></div>
       </span>
     </div>
     <div>
@@ -53,28 +22,10 @@
     </div>
   </form>
 </span>
-
 <span ng-if='table'>
   <div class='table-responsive'>
     <form ng-submit='submitSurvey()'>
-      <table class='table table-striped'>
-        <thead>
-          <tr>
-            <th>&nbsp;</th>
-            <th ng-repeat='option in surveyOptions'>{{option.text}}</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat='question in subQuestions'>
-              <td>
-                {{question.text}}
-              </td>
-              <td class='table-radio' ng-repeat='option in surveyOptions'>
-                <input type='radio' ng-model='answers[$parent.$index]' ng-required='!answers[$parent.$index]' value="{{$index+1}}">
-              </td>
-            </tr>
-        </tbody>
-      </table>
+      <div ng-include="'/partials/survey_items/includes/multi_table.html'"></div>
       <input class='btn btn-primary pull-right' type='submit'></input>
     </form>
   </div>
