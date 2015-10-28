@@ -18,6 +18,13 @@ app.factory('SurveyItemsService', function ($http) {
       return answers.reduce(function (sum, num) {
         return sum + num;
       })
+    },
+    getDependent: function (itemsArray, id) {
+      var dependent;
+      itemsArray.forEach(function (item, i) {
+        if(item.id === id){ dependent = i };
+      })
+      return dependent;
     }
   }
 })

@@ -2,15 +2,15 @@
   <thead>
     <tr>
       <th>&nbsp;</th>
-      <th ng-repeat='option in item.options'>{{option.text}}</th>
+      <th ng-repeat='option in surveyOptions'>{{option.text}}</th>
     </tr>
   </thead>
   <tbody>
-      <tr ng-repeat='question in item.sub_questions'>
+      <tr ng-repeat='question in subQuestions'>
         <td>
           {{question.text}}
         </td>
-        <td ng-repeat='option in item.options'>
+        <td ng-repeat='option in surveyOptions'>
           <input type='radio' ng-model='answers[$parent.$parent.$index][$parent.$index]' ng-required='!answers[$parent.$parent.$index][$parent.$index]' value="{{$index+1}}">
         </td>
       </tr>
