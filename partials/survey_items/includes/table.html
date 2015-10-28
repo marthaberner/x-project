@@ -11,7 +11,7 @@
           {{question.text}}
         </td>
         <td ng-repeat='option in surveyOptions'>
-          <input type='radio' ng-model='answers[$parent.$parent.$index][$parent.$index]' ng-required='!answers[$parent.$parent.$index][$parent.$index]' value="{{$index+1}}">
+          <input type='radio' ng-model='answers[$parent.$index]' ng-required='!answers[$parent.$index]' value="{{$index+1}}">
         </td>
       </tr>
   </tbody>

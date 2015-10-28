@@ -8,7 +8,11 @@ app.factory('SurveyItemsService', function ($http) {
       })
     },
     getScore: function (results) {
+      var _this = this;
       var answers = results.map(function (num) {
+        if(typeof(num)==='object'){
+          num = _this.getSubScore(num);
+        }
         return Number(num);
       })
       answers = answers.filter(function (answer) {
@@ -25,6 +29,11 @@ app.factory('SurveyItemsService', function ($http) {
         if(item.id === id){ dependent = i };
       })
       return dependent;
+    },
+    getSubScore: function(answers) {
+      return answers.reduce(function (sum, num) {
+        return sum + num;
+      })
     }
   }
 })
