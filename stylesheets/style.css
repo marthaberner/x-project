@@ -32,10 +32,16 @@ td {
   width: 100px;
 }
 
+
+.table>tbody>tr>td.questionText {
+  text-align: left;
+}
+
 .table>tbody>tr>td  {
   text-align: center;
   vertical-align:middle;
 }
+
 .jumbotron p {
   font-size: 16px;
 }
