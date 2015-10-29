@@ -28,10 +28,29 @@ td {
   border: 1px solid lightgray;
 }
 
+.well {
+  overflow: hidden;
+}
+
+.form-control {
+  margin-top: 10px;
+  width: 30%;
+}
+
+.empty {
+  color: #9F6000;
+  background-color: #FEEFB3;
+  opacity: 0.6;
+}
+
+p.empty {
+  padding: 10px;
+  overflow: hidden;
+}
+
 .table>thead>tr>th  {
   width: 100px;
 }
-
 
 .table>tbody>tr>td.questionText {
   text-align: left;

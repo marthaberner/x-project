@@ -20,6 +20,9 @@
     </span>
   </div>
   <div>
-    <input class='btn btn-primary pull-right' type='submit'></input>
+    <p ng-show='submitted' class='empty'>You have unanswered questions
+    <input class='btn btn-warning pull-right' type='submit' value='Submit Anyway'></input>
+  </p>
+    <input ng-hide='submitted' class='btn btn-primary pull-right' type='submit'></input>
   </div>
 </form>

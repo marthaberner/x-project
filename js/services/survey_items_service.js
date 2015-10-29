@@ -8,20 +8,24 @@ app.factory('SurveyItemsService', function ($http) {
       })
     },
     getScore: function (results) {
-      var _this = this;
-      var answers = results.map(function (num) {
-        if(typeof(num)==='object'){
-          num = _this.getSubScore(num);
-        }
-        return Number(num);
-      })
-      answers = answers.filter(function (answer) {
-        var nan = isNaN(answer);
-        return !nan;
-      })
-      return answers.reduce(function (sum, num) {
-        return sum + num;
-      })
+      if(results.length === 0){
+        return 0;
+      } else {
+        var _this = this;
+        var answers = results.map(function (num) {
+          if(typeof(num)==='object'){
+            num = _this.getSubScore(num);
+          }
+          return Number(num);
+        })
+        answers = answers.filter(function (answer) {
+          var nan = isNaN(answer);
+          return !nan;
+        })
+        return answers.reduce(function (sum, num) {
+          return sum + num;
+        })
+      }
     },
     getDependent: function (itemsArray, id) {
       var dependent;
@@ -31,9 +35,13 @@ app.factory('SurveyItemsService', function ($http) {
       return dependent;
     },
     getSubScore: function(answers) {
-      return answers.reduce(function (sum, num) {
-        return sum + num;
-      })
+      if(answers.length === 0){
+        return 0;
+      } else {
+        return answers.reduce(function (sum, num) {
+          return sum + num;
+        })
+      }
     },
     sortItemsByPosition: function (items) {
       return items.sort(function (item1, item2) {

@@ -7,11 +7,13 @@
   </thead>
   <tbody>
       <tr ng-repeat='question in subQuestions'>
-        <td class='questionText'>
+        <span ng-class='{empty:!answers[$index]}'>
+        <td ng-class='{empty:!answers[$index] && submitted}' class='questionText'>
           {{question.text}}
         </td>
+        <span>
         <td ng-repeat='option in surveyOptions'>
-          <input type='radio' ng-model='answers[$parent.$index]' ng-required='!answers[$parent.$index]' value="{{$index+1}}">
+          <input type='radio' ng-model='answers[$parent.$index]' value="{{$index+1}}">
         </td>
       </tr>
   </tbody>

@@ -1,8 +1,10 @@
 app.controller('SurveyItemController', function ($scope, $state, $location, SurveyItemsService, $stateParams) {
+  $scope.submitted=false;
   $scope.answers = [];
-  $scope.score = $stateParams.score;
+  $scope.totalQuestions;
   SurveyItemsService.find($stateParams.survey_id).then(function (response) {
     if(response.length > 1) {
+      $scope.totalQuestions = response.length;
       $scope.surveyItems = SurveyItemsService.sortItemsByPosition(response);
       $scope.freeForm = true;
       response.forEach(function (item) {
@@ -11,6 +13,7 @@ app.controller('SurveyItemController', function ($scope, $state, $location, Surv
         }
       })
     } else {
+      $scope.totalQuestions = response[0].sub_questions.length;
       $scope.surveyOptions = response[0].options;
       $scope.subQuestions = response[0].sub_questions;
       $scope.table = true;
@@ -18,8 +21,15 @@ app.controller('SurveyItemController', function ($scope, $state, $location, Surv
   })
 
   $scope.submitSurvey = function () {
-    $scope.score = SurveyItemsService.getScore($scope.answers);
-    var path = 'users/' + $stateParams.id + '/results/' + $scope.score
-    $location.path(path);
+    if($scope.answers.length < $scope.totalQuestions && !$scope.submitAnyway){
+      $scope.submitted = true;
+      $scope.submitAnyway = true;
+    } else {
+      $scope.submitAnyway = false;
+      $scope.submitted = false;
+      $scope.score = SurveyItemsService.getScore($scope.answers);
+      var path = 'users/' + $stateParams.id + '/results/' + $scope.score
+      $location.path(path);
+    }
   }
 })

@@ -1,7 +1,7 @@
-<p>{{item.title}}</p>
+<p ng-class='{empty:!answers[$index] && submitted}'>{{item.title}}</p>
 <p class='radio' ng-repeat='option in item.options'><small>
-  <input type='radio' ng-model='answers[$parent.$index]' value='{{$index+1}}' ng-required='!answers[$parent.$index]'>{{option.text}}
+  <input type='radio' ng-model='answers[$parent.$index]' value='{{$index+1}}'>{{option.text}}
   <span ng-if='option.additionalTextField'>
-    <input type="text" ng-model='other'>
+    <input class="form-control" type="text" ng-model='other'>
   </span>
 </small></p>

@@ -1,3 +1,4 @@
-<p>{{item.title}}
-<input type='number' min='0' ng-model='answers[$parent.$index]' value='' ng-required='!answers[$parent.$index]'>
+<p ng-class='{empty:!answers[$parent.$index] && submitted}'>{{item.title}}</p>
+<p>
+  <input class='form-control' type='number' min='0' ng-model='answers[$parent.$index]' value=''>
 </p>
