@@ -34,6 +34,11 @@ app.factory('SurveyItemsService', function ($http) {
       return answers.reduce(function (sum, num) {
         return sum + num;
       })
+    },
+    sortItemsByPosition: function (items) {
+      return items.sort(function (item1, item2) {
+        return item1.position - item2.position;
+      })
     }
   }
 })

@@ -3,7 +3,7 @@ app.controller('SurveyItemController', function ($scope, $state, $location, Surv
   $scope.score = $stateParams.score;
   SurveyItemsService.find($stateParams.survey_id).then(function (response) {
     if(response.length > 1) {
-      $scope.surveyItems = response;
+      $scope.surveyItems = SurveyItemsService.sortItemsByPosition(response);
       $scope.freeForm = true;
       response.forEach(function (item) {
         if(item.depends_on){
