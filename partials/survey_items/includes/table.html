@@ -13,7 +13,9 @@
         </td>
         <span>
         <td ng-repeat='option in surveyOptions'>
+          <label>
           <input type='radio' ng-model='answers[$parent.$index]' value="{{$index+1}}">
+          </label>
         </td>
       </tr>
   </tbody>
