@@ -2,6 +2,6 @@
 <p class='radio' ng-repeat='option in item.options'><small>
   <input type='radio' ng-model='answers[$parent.$index]' value='{{$index+1}}'>{{option.text}}
   <span ng-if='option.additionalTextField'>
-    <input class="form-control" type="text" ng-model='other'>
+    <input class="form-control surveys" type="text" ng-model='other'>
   </span>
 </small></p>

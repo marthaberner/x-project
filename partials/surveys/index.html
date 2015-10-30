@@ -7,7 +7,7 @@
   <div class="list-group" dir-paginate="survey in surveys | itemsPerPage: 8">
     <div class="list-group-item survey-info" ng-controller="SurveyController">
       <span ng-if='!loggedInUser.currentUser'>
-      <h4><a ng-click="showConsentModal(survey)">{{survey.name}}</a></h4>
+      <h4><a href='#' ng-click="showConsentModal(survey)">{{survey.name}}</a></h4>
       </span>
       <span ng-if='loggedInUser.currentUser'>
         <h4><a ui-sref='user.survey({survey_id: survey.id, user_id: loggedInUser.currentUser})'  >{{survey.name}}</a></h4>

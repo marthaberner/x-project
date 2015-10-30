@@ -32,7 +32,7 @@ td {
   overflow: hidden;
 }
 
-.form-control {
+.form-control.surveys {
   margin-top: 10px;
   width: 30%;
 }
