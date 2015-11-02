@@ -48,6 +48,15 @@ app.factory('SurveyItemsService', function ($http) {
         return item1.position - item2.position;
       })
     },
+    shuffle: function (items) {
+      for(var i=items.length-1; i>=0; i--){
+        var randomIndex = Math.floor(Math.random()*(i+1));
+        var itemAtIndex = items[randomIndex];
+        items[randomIndex] = items[i];
+        items[i] = itemAtIndex;
+      }
+      return items;
+    },
     hasUnansweredQuestions: function (answers, questions) {
       var emptySubQuestions = 0;
       var emptyQuestions = answers.length < questions;

@@ -1,4 +1,5 @@
 app.controller('SurveyItemController', function ($scope, $state, $location, SurveyItemsService, $stateParams) {
+  $scope.shuffle = SurveyItemsService.shuffle;
   $scope.submitted=false;
   $scope.submitAnyway = false;
   $scope.answers = [];
@@ -6,7 +7,7 @@ app.controller('SurveyItemController', function ($scope, $state, $location, Surv
   SurveyItemsService.find($stateParams.survey_id).then(function (response) {
     if(response.length > 1) {
       $scope.totalQuestions = response.length;
-      $scope.surveyItems = SurveyItemsService.sortItemsByPosition(response);
+      $scope.surveyItems = SurveyItemsService.shuffle(response);
       $scope.freeForm = true;
       response.forEach(function (item) {
         if(item.depends_on){
@@ -16,7 +17,7 @@ app.controller('SurveyItemController', function ($scope, $state, $location, Surv
     } else {
       $scope.totalQuestions = response[0].sub_questions.length;
       $scope.surveyOptions = response[0].options;
-      $scope.subQuestions = response[0].sub_questions;
+      $scope.subQuestions = SurveyItemsService.shuffle(response[0].sub_questions);
       $scope.table = true;
     }
   })
