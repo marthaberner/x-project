@@ -47,6 +47,18 @@ app.factory('SurveyItemsService', function ($http) {
       return items.sort(function (item1, item2) {
         return item1.position - item2.position;
       })
-    }
+    },
+    hasUnansweredQuestions: function (answers, questions) {
+      var emptySubQuestions = 0;
+      var emptyQuestions = answers.length < questions;
+      answers.forEach(function (answer) {
+        if(typeof(answer) === 'object' && answer.length === 0){
+          emptySubQuestions += 1;
+        }
+      })
+      if(emptyQuestions || emptySubQuestions > 0){
+        return true;
+      }
+     }
   }
 })

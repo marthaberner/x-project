@@ -1,5 +1,6 @@
 app.controller('SurveyItemController', function ($scope, $state, $location, SurveyItemsService, $stateParams) {
   $scope.submitted=false;
+  $scope.submitAnyway = false;
   $scope.answers = [];
   $scope.totalQuestions;
   SurveyItemsService.find($stateParams.survey_id).then(function (response) {
@@ -21,12 +22,10 @@ app.controller('SurveyItemController', function ($scope, $state, $location, Surv
   })
 
   $scope.submitSurvey = function () {
-    if($scope.answers.length < $scope.totalQuestions && !$scope.submitAnyway){
+    if(SurveyItemsService.hasUnansweredQuestions($scope.answers, $scope.totalQuestions) && !$scope.submitAnyway){
       $scope.submitted = true;
       $scope.submitAnyway = true;
     } else {
-      $scope.submitAnyway = false;
-      $scope.submitted = false;
       $scope.score = SurveyItemsService.getScore($scope.answers);
       var path = 'users/' + $stateParams.id + '/results/' + $scope.score
       $location.path(path);

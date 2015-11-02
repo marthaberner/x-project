@@ -30,6 +30,7 @@ td {
 }
 
 label {
+  font-weight: normal;
   padding: 10px;
   display: block;
 }
