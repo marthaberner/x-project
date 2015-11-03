@@ -1,5 +1,6 @@
 app.controller('SurveyController', function ($scope, $stateParams, $location, $state,
   ModalService, SurveysService, SurveyItemsService, SessionService) {
+
   SurveysService.find($stateParams.survey_id).then(function (response) {
     $scope.survey = response;
   })
@@ -22,7 +23,7 @@ app.controller('SurveyController', function ($scope, $stateParams, $location, $s
       $location.path('/users/' + SessionService.currentUser + '/surveys/' + survey.id);
     } else if($scope.consent && !SessionService.currentUser) {
       $location.path('/users/00/surveys/' + survey.id );
-    } 
+    }
   }
 
   $scope.dismissModal = function(result) {

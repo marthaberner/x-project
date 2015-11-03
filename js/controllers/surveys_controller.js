@@ -1,4 +1,4 @@
-app.controller('SurveysController', function ($scope, SamplesService, $state, SurveysService, ModalService, $location, SessionService) {
+app.controller('SurveysController', function ($scope, $state, SurveysService, ModalService, $location, SessionService) {
 
   SurveysService.all().then(function (response) {
     $scope.surveys = response;
