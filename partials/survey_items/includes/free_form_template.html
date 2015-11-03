@@ -7,9 +7,6 @@
       <span ng-if="item.item_type === 'multiple_choice' && item.layout === 'free_form'">
         <div class='well' ng-include="'/partials/survey_items/includes/multi_free_form.html'"></div>
       </span>
-      <span ng-if="item.item_type === 'decimal_input' && item.layout === 'multiple_input'">
-        <div ng-init='answers[$index]=[]' class='well' ng-include="'/partials/survey_items/includes/multi_input.html'"></div>
-      </span>
       <span ng-if="item.item_type === 'numeric_input' && item.layout === 'multiple_input'">
         <div ng-init='answers[$index]=[]' class='well' ng-include="'/partials/survey_items/includes/multi_input.html'"></div>
       </span>
