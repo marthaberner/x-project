@@ -6,8 +6,8 @@
       <th ng-repeat='option in item.options'>{{option.text}}</th>
     </tr>
   </thead>
-  <tbody>
-      <tr ng-repeat='question in item.sub_questions'>
+  <tbody ng-init ='subQuestions = shuffle(item.sub_questions)'>
+      <tr ng-repeat='question in subQuestions'>
         <td ng-class='{empty:!answers[$parent.$index][$index] && submitted}' class='questionText'>
           {{question.text}}
         </td>

@@ -1,5 +1,5 @@
-<p ng-class='{empty:!answers[$index] && submitted}'>{{item.title}}</p>
-<p class='radio' ng-repeat='option in item.options'><small>
+<p ng-init='options = shuffle(item.options)' ng-class='{empty:!answers[$index] && submitted}'>{{item.title}}</p>
+<p class='radio' ng-repeat='option in options'><small>
   <label>
     <input type='radio' ng-model='answers[$parent.$index]' value='{{$index+1}}'>{{option.text}}
   </label>
