@@ -1,9 +1,11 @@
 app.controller('SurveyController', function ($scope, $stateParams, $location, $state,
   ModalService, SurveysService, SurveyItemsService, SessionService) {
 
-  SurveysService.find($stateParams.survey_id).then(function (response) {
-    $scope.survey = response;
-  })
+  if ($stateParams.survey_id) {
+    SurveysService.find($stateParams.survey_id).then(function (response) {
+      $scope.survey = response;
+    })
+  }
 
   $scope.showConsentModal = function(survey) {
     SurveysService.requestSurvey(survey);
